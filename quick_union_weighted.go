@@ -47,6 +47,18 @@ func (u QuickUnionWeighted) getRoot(p int) int {
 	return rootP
 }
 
+func (u QuickUnionWeighted) getRootWithPathCompression(p int) int {
+
+	var rootP = u.elements[p]
+
+	for rootP != u.elements[rootP] {
+		u.elements[rootP] = u.elements[u.elements[rootP]]
+		rootP = u.elements[rootP]
+	}
+
+	return rootP
+}
+
 func (u QuickUnionWeighted) connected(p int, q int) bool {
 	return u.getRoot(p) == u.getRoot(q)
 }
