@@ -29,11 +29,11 @@ func binarySearch(array []int, num int) int {
 }
 
 func binarySearchRecursive(array []int, num int, first int, last int) int {
-	mid := (first + last) / 2
-
 	if first > last {
 		return -1
 	}
+
+	mid := (first + last) / 2
 
 	if array[mid] == num {
 		return mid
